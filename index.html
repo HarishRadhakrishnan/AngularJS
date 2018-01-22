@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/jquery-3.1.1.js"></script>
+    <script src="lib/bootstrap.js"></script>
+    <link rel="stylesheet" href="lib/bootstrap.css"/>
+    <script src="script.js"></script>
+	<link rel="stylesheet" href="script.css"/>
+  </head>
+  <body  ng-app="myApp" ng-controller="empCntrl">
+    <div class="container">
+        <h1>{{title}}</h1>
+        <form  name="myForm" class="form-horizontal" novalidate>
+          <div class="form-group">
+            <label for="empname" class="col-sm-2 control-label">Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="empname" ng-model="name" placeholder="Enter Name" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="empage" class="col-sm-2 control-label">Age</label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control" id="empage" ng-model="age" placeholder="Enter Age" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="empdesignation" class="col-sm-2 control-label">Designation</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="empdesignation" ng-model="designation" placeholder="Enter Designation" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="empsalary" class="col-sm-2 control-label">Salary</label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control" id="empsalary" ng-model="salary" placeholder="Enter Salary" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-primary" ng-click="addemployee()" ng-disabled="myForm.$invalid">ADD EMPLOYEE</button>
+            </div>
+          </div>
+        </form>
+ 
+        <table class="table table-bordered" ng-show="showtable">
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Designation</th>
+            <th>Salary</th>
+          </tr>
+          <tr ng-repeat="emp in employees">
+            <td>{{emp.ename}}</td>
+            <td>{{emp.eage}}</td>
+            <td>{{emp.edesignation}}</td>
+            <td>{{emp.esalary}}</td>
+          </tr>
+        </table>
+		<div class="row">
+			<div class="col-xs-5 col-sm-12"><h3>To assign value to form</h3></div>
+			<div class="col-xs-7 col-sm-12"><button class="btn btn-success" ng-click="assign()">Assign</button></div>
+		</div>
+		<form class="form-horizontal">
+          <div class="form-group">
+            <label for="leadname" class="col-sm-2 control-label">Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="leadname" ng-model="leadname" placeholder="Enter Name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="leadage" class="col-sm-2 control-label">Age</label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control" id="leadage" ng-model="leadage" placeholder="Enter Age">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="leaddesignation" class="col-sm-2 control-label">Designation</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="leaddesignation" ng-model="leaddesignation" placeholder="Enter Designation">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="leadsalary" class="col-sm-2 control-label">Salary</label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control" id="leadsalary" ng-model="leadsalary" placeholder="Enter Salary">
+            </div>
+          </div>
+		  </form>
+    </div> 
+  </body>
+
+</html>
